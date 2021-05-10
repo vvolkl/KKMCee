@@ -370,7 +370,7 @@ C end
       DOUBLE PRECISION  zbms, zisr, y1,y2, ybms,yisr, xbms,xisr, Emin, W, SF1, SF2, GS1, GS2, pi
       DOUBLE PRECISION  Par(0:3)
 c[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
-      INTEGER           KeyBES
+cc      INTEGER           KeyBES
       double precision  E1,E2,sigma1,sigma2,sigma,corho,delE1,delE2,dGauss
 cc      double precision  BES_ene1,BES_ene2,BES_sig1,BES_sig2,BES_rho
       double precision  x1,x2, rr1,rr2, Ebeam1, Ebeam2
@@ -391,10 +391,10 @@ c]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
       r2   = xarg(3)
       Rho  = 1d0
 c[[[[[[[[[[[[[[[[[[[[[[[[[[[
-      KeyBES=1
+c      KeyBES=1
 c]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-ccc      IF( m_KeyFix .EQ. 2) THEN
-      IF( KeyBES .EQ. 0) THEN
+      IF( m_KeyFix .EQ. 2) THEN
+ccc      IF( KeyBES .EQ. 0) THEN
 *//////////////////////////////////////////////////////////////////////////////////////
 * Beamstrahlung spectrum
 * WARNING!!! it looks that CIRCE spectrum below is not normalized to one!!!
@@ -414,8 +414,8 @@ ccc      IF( m_KeyFix .EQ. 2) THEN
       SF2 = Par(1) *m_x2**Par(3) *(1d0-m_x2)**Par(2)   ! the same as circee
       SF12 = (GS1+SF1)*(GS2+SF2)
       Rho = Rho *SF12
-ccc      ELSE IF ( m_KeyFix .EQ. 3) THEN
-      ELSE IF ( KeyBES .EQ. 1) THEN
+      ELSE IF ( m_KeyFix .EQ. 3) THEN
+ccc      ELSE IF ( KeyBES .EQ. 1) THEN
 C mapping of Patrick Janot for 2-dim Gaussian BES with optional correlation
 C in this case Jacobian*distribution=1 is omitted.
       E1    = m_BES_ene1
@@ -433,8 +433,8 @@ C in this case Jacobian*distribution=1 is omitted.
       z2 = Ebeam2/E2
       m_x1  = 1-z1
       m_x2  = 1-z2
-ccc      ELSE IF ( m_KeyFix .EQ. 4) THEN
-      ELSE IF ( KeyBES .EQ. 2) THEN
+      ELSE IF ( m_KeyFix .EQ. 4) THEN
+ccc      ELSE IF ( KeyBES .EQ. 2) THEN
 ! using explicit density distribution,
 ! the same BES distribution from Patrick Janot
       E1    = m_BES_ene1
