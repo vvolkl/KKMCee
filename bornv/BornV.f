@@ -84,11 +84,21 @@
 *
 
 c[[[[[[[[[[[[[[[[[[[[[[[[[[[
-      m_BES_ene1 = 50         ! if zero then replaced by CMSene/2
-      m_BES_ene2 = 50         ! if zero then replaced by CMSene/2
-      m_BES_sig1 = 0.132e-2   ! sigma1/E1 value from Patrick
-      m_BES_sig2 = 0.132e-2   ! sigma2/E2 value from Patrick
-      m_BES_rho  = 0.300e0    ! correlation param. 0<rho<1
+c      m_BES_ene1 = 50         ! if zero then replaced by CMSene/2
+c      m_BES_ene2 = 50         ! if zero then replaced by CMSene/2
+c      m_BES_sig1 = 0.132e-2   ! sigma1/E1 value from Patrick
+c      m_BES_sig2 = 0.132e-2   ! sigma2/E2 value from Patrick
+c      m_BES_rho  = 0.300e0    ! correlation param. 0<rho<1
+
+      m_BES_ene1 = xpar_input(80)
+      m_BES_ene2 = xpar_input(81)
+      m_BES_sig1 = xpar_input(82)
+      m_BES_sig2 = xpar_input(83)
+      m_BES_rho  = xpar_input(84)
+      IF(ABS(m_BES_ene1*m_BES_ene2) .LT. 1e-4) THEN
+         m_BES_ene1 = m_CMSene/2;
+         m_BES_ene2 = m_CMSene/2;
+      ENDIF
 c]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
 
