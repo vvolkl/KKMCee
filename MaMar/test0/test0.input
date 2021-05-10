@@ -7,17 +7,19 @@ BeginX
 *indx_____data______ccccccccc0cccc__________General_____ccc0ccccccccc0ccccccccc0
     0           1000      1k   NEVT = number of events
 *    0        1000000      1M   NEVT = number of events
-    0      100000000      100M NEVT = number of events
+*    0      100000000      100M NEVT = number of events
 * Center-of-mass energy [GeV]
-    1        95.00e0      CMSene =xpar( 1) Average Center of mass energy [GeV]
+    1       100.00e0      CMSene =xpar( 1) Average Center of mass energy [GeV]
     2        0.000e0      DelEne =xpar( 2) Beam energy spread [GeV]
 * KeyWgt=0 we get constant and for KeyWgt=1 variable weight events
    10              1      0/1 = constant/varying weight events
 * KeyELW=0,1 Type of Electroweak corrections, KeyElw=0 only for tests
    12              1      KeyELW=xpar(12) Deafault is 1, for Dizet
-*   12              0      !!!! NO EW, NO VACPOL !!!!
 *
    21              1      KeyFSR=xpar(21)  Default is  1, for all final fermions
+**\\\\KeyFix Type of ISR (=1 obsolete) see KarLud_Make, BornV_RhoFoamC
+** 25              0      =0 normal, =2 beamsstrahlung =3,4 for gaussian BES
+   25              2
 * Minimum and maximum v, where v = 1-sprim/s, v=1 is alowed
 * For the overall precision 1e-4 one should keep vmin=1e-5.
    16           1e-5      vvmin =xpar(16)  may  be put to  vvmin < 1e-5
