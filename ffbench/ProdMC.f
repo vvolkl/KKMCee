@@ -101,8 +101,8 @@
       WRITE(   6,*)   nevt,' requested events '
       WRITE(nout,*)   nevt,' requested events '
 *
-      CALL KK2f_ReaDataX('../../.KK2f_defaults', 1,imax,xpar)  ! reading general defaults
-      CALL KK2f_ReaDataX(         './pro.input', 0,imax,xpar)  ! reading user input
+      CALL KK2f_ReaDataX('.KK2f_defaults', 1,imax,xpar)  ! reading general defaults
+      CALL KK2f_ReaDataX(   './pro.input', 0,imax,xpar)  ! reading user input
 *
       CALL KK2f_Initialize(xpar)                  ! initialize generator
 *
